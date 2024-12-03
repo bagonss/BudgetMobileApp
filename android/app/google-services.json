@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "207615161702",
+    "project_id": "mobilebuild-2df17",
+    "storage_bucket": "mobilebuild-2df17.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207615161702:android:0dfb593e8330913f3bc4a7",
+        "android_client_info": {
+          "package_name": "com.example.mobilebuild"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByvxTBIpXL9uE__aH7ujuO8xHIn0m3ihY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
