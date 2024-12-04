@@ -10,67 +10,71 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Header Styling */
 h1, h2 {
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.75rem;
-    margin-top: 20px;
+    font-size: 1.5rem;
 }
 
 /* Section Styling */
 section {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 /* Bio Section */
+.bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .bio-container {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-bottom: 15px;
+    width: 80%; /* Controls the width of bio containers */
+    max-width: 400px; /* Prevents excessive width on larger screens */
 }
 
 .bio-pic {
-    width: 100px;
-    height: 100px;
+    width: 70px; /* Reduced image size */
+    height: 70px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
-/* List Styling */
-ul {
-    list-style-type: none;
-    padding: 0;
+.bio-container p {
+    margin: 0;
 }
 
-ul li {
-    margin-bottom: 10px;
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    text-decoration: underline;
+/* Course Info Section */
+.course-info p {
+    font-size: 1rem;
 }
 
 /* Button Styling */
@@ -93,7 +97,7 @@ button:hover {
 @media (max-width: 768px) {
     .bio-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .bio-pic {
@@ -102,5 +106,13 @@ button:hover {
 
     .container {
         padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
     }
 }
