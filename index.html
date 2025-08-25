@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page - Budget Mobile App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <nav>
-  <a href="index.html">Home</a> |
-  <a href="about.html">About</a> |
-  <a href="projects.html">Projects</a>
-        </nav>
-
-        <!-- Project Info Section -->
-        <section class="project-info">
-            <h1>Project Title: Budget Mobile App</h1>
-            <p><strong>Project ID:</strong> SP-26-Clyde-BudgetMobileApp</p>
-            <p><strong>Color:</strong> Pink</p>
-        </section>
-
-        <!-- Bio Section -->
-        <section class="bio">
-            <h2>About the Developers</h2>
-
-            <!-- Developer 1: Brandon Johnson -->
-            <div class="bio-container">
-                <img src="images/bran.png" alt="Brandon Johnson" class="bio-pic">
-                <p><strong>Brandon Johnson- </strong></p>
-                <p> Team Lead/Documentation/Tester </p>
-            </div>
-
-            <!-- Developer 2: Tobi Samaye -->
-            <div class="bio-container">
-                <img src="images/tobias.png" alt="Tobi Samaye" class="bio-pic">
-                <p><strong>Tobi Samaye- </strong></p>
-                <p> Main Programmer/Developer </p>
-            </div>
-            <!-- Developer 3: Brandon Machipisa -->
-            <div class="bio-container">
-                <img src="images/bran1.jpg" alt="Brandon Machipisa" class="bio-pic">
-                <p><strong>Brandon Machipisa- </strong></p>
-                <p> Researcher/Programmer/Developer </p>
-            </div>
-        </section>
-
-        <!-- Course Info Section -->
-        <section class="course-info">
-            <h2>Course Information</h2>
-            <p><strong>Course Number:</strong> CS4850</p>
-            <p><strong>Section:</strong> 04</p>
-            <p><strong>Semester:</strong> Fall 2024</p>
-        </section>
-
-        <!-- Button to Navigate to About Page -->
-        <section class="navigation">
-            <a href="about.html"><button>Go to Project Details</button></a>
-        </section>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Tobi Samaye</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Résumé</a>
+      <a href="contact.html">Contact</a>
     </div>
+  </div>
+</nav>
+  <div class="container">
+    <!-- Project Info Section -->
+    <section class="project-info">
+      <h1>Budget Mobile App</h1>
+      <p><strong>Project ID:</strong> SP-26-Clyde-BudgetMobileApp</p>
+      <p><strong>Color:</strong> Pink</p>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio">
+      <h2>About the Developers</h2>
+
+      <div class="bio-container">
+        <img src="images/bran.png" alt="Brandon Johnson" class="bio-pic">
+        <div>
+          <p><strong>Brandon Johnson</strong></p>
+          <p>Team Lead / Documentation / Tester</p>
+        </div>
+      </div>
+
+      <div class="bio-container">
+        <img src="images/tobias.png" alt="Tobi Samaye" class="bio-pic">
+        <div>
+          <p><strong>Tobi Samaye</strong></p>
+          <p>Main Programmer / Developer</p>
+        </div>
+      </div>
+
+      <div class="bio-container">
+        <img src="images/bran1.jpg" alt="Brandon Machipisa" class="bio-pic">
+        <div>
+          <p><strong>Brandon Machipisa</strong></p>
+          <p>Researcher / Programmer / Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="navigation">
+      <a class="btn" href="about.html">Project Details</a>
+      <a class="btn secondary" href="projects.html">See All Projects</a>
+    </section>
+  </div>
+  <footer class="site-footer">
+  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank">GitHub</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
 </body>
 </html>

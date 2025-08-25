@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Budget Mobile App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <nav>
-  <a href="index.html">Home</a> |
-  <a href="about.html">About</a> |
-  <a href="projects.html">Projects</a>
-        </nav>
-
-        <!-- Project Documents Section -->
-        <section class="documents">
-            <h2>Project Documents</h2>
-            <ul>
-                <!-- Link to open the PDF file -->
-                <li><a href= "SP-26-Clyde-BudgetMobileApp-FinalReport.pdf" target="_blank">Project Report (PDF)</a></li>
-            </ul>
-        </section>
-
-        <!-- GitHub Link Section -->
-        <section class="github-link">
-            <h2>GitHub Repository</h2>
-            <p>Check out the project on GitHub:</p>
-            <a href="https://github.com/bagonss/BudgetMobileApp" target="_blank">GitHub Repository</a>
-        </section>
-
-        <!-- Final Presentation Video Link -->
-        <section class="presentation">
-            <h2>Final Presentation Video</h2>
-            <p>Watch the final presentation, which explains the development approach and showcases the project:</p>
-            <a href="https://www.youtube.com/watch?v=m0iuxMojezU" target="_blank">Watch Final Presentation</a>
-        </section>
-
-        <!-- Button to Navigate Back to Home Page -->
-        <section class="navigation">
-            <a href="index.html"><button>Back to Home Page</button></a>
-        </section>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Tobi Samaye</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Résumé</a>
+      <a href="contact.html">Contact</a>
     </div>
+  </div>
+</nav>
+  <div class="container">
+    <!-- Project Documents Section -->
+    <section class="documents">
+      <h1>Project Documents</h1>
+      <ul>
+        <li><a href="SP-26-Clyde-BudgetMobileApp-FinalReport.pdf" target="_blank">Project Report (PDF)</a></li>
+      </ul>
+    </section>
+
+    <!-- GitHub Link Section -->
+    <section class="github-link">
+      <h2>GitHub Repository</h2>
+      <p>Check out the project on GitHub:</p>
+      <a class="btn" href="https://github.com/bagonss/BudgetMobileApp" target="_blank">Open Repository</a>
+    </section>
+
+    <!-- Final Presentation Video Link -->
+    <section class="presentation">
+      <h2>Final Presentation Video</h2>
+      <p>Watch the final presentation, which explains the development approach and showcases the project:</p>
+      <a class="btn secondary" href="https://www.youtube.com/watch?v=m0iuxMojezU" target="_blank">Watch Final Presentation</a>
+    </section>
+
+    <!-- Back Links -->
+    <section class="navigation">
+      <a class="btn" href="index.html">Back to Home</a>
+      <a class="btn secondary" href="projects.html">See All Projects</a>
+    </section>
+  </div>
+  <footer class="site-footer">
+  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank">GitHub</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
 </body>
 </html>
