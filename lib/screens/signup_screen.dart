@@ -4,10 +4,12 @@ import 'package:mobilebuild/screens/home_screen.dart';
 import 'package:mobilebuild/screens/signin_screen.dart';
 import 'package:mobilebuild/widgets/custom_scaffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// Features include input fields for full name, email, and password, with validation and a sign-up button.
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+  final ValueNotifier<ThemeMode> themeModeNotifier;
+  const SignupScreen({super.key, required this.themeModeNotifier});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -27,35 +29,63 @@ class _SignupScreenState extends State<SignupScreen> {
 
   /// Registers the user with Firebase Authentication.
   /// Shows a success or error message based on the result.
-  Future<void> registration() async {
-    try {
-      // Simulate successful registration
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text(
-          "Registered Successfully",
-          style: TextStyle(fontSize: 20.0),
-        ),
-      ));
-      // Navigate to the HomeScreen after registration
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
-    } on FirebaseAuthException catch (e) {
-      String message = e.code == 'weak-password'
-          ? "Password Provided is too Weak"
-          : e.code == "email-already-in-use"
-              ? "Account Already Exists"
-              : "Registration Failed";
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.orangeAccent,
-        content: Text(
-          message,
-          style: const TextStyle(fontSize: 18.0),
-        ),
-      ));
-    }
+Future<void> registration() async {
+  try {
+    //Create user in Firebase Auth
+    UserCredential userCredential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+
+    //Save additional user info in Firestore
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userCredential.user!.uid)
+        .set({
+      'fullName': fullnameController.text.trim(),
+      'email': emailController.text.trim(),
+      'createdAt': Timestamp.now(),
+    });
+
+    //Show success and navigate
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text(
+        "Registered Successfully",
+        style: TextStyle(fontSize: 20.0),
+      ),
+    ));
+
+    Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(
+    builder: (_) => HomeScreen(themeModeNotifier: widget.themeModeNotifier),
+  ),
+);
+
+  } on FirebaseAuthException catch (e) {
+    String message = e.code == 'weak-password'
+        ? "Password Provided is too Weak"
+        : e.code == "email-already-in-use"
+            ? "Account Already Exists"
+            : "Registration Failed: ${e.message}";
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.orangeAccent,
+      content: Text(
+        message,
+        style: const TextStyle(fontSize: 18.0),
+      ),
+    ));
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Text(
+        "An error occurred: ${e.toString()}",
+        style: const TextStyle(fontSize: 16.0),
+      ),
+    ));
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -160,9 +190,9 @@ class _SignupScreenState extends State<SignupScreen> {
                           const Text('Already have an account? '),
                           GestureDetector(
                             onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SigninScreen(),
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => SigninScreen(themeModeNotifier: widget.themeModeNotifier),
                               ),
                             ),
                             child: const Text(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// Defines a color palette for the light theme of the app using `ColorScheme`.
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light, // Indicates light mode
-  primary: Color.fromARGB(255, 255, 193, 7), // Main brand color for light mode
+  primary:Color.fromARGB(255, 6, 26, 42), // Main brand color for light mode
   onPrimary: Color.fromARGB(255, 255, 255, 255), // Text/icon color on primary surfaces
   secondary: Color.fromARGB(255, 255, 229, 149), // Secondary brand color
   onSecondary: Color.fromARGB(255, 255, 255, 255), // Text/icon color on secondary surfaces
@@ -12,25 +12,26 @@ const lightColorScheme = ColorScheme(
   onError: Color.fromARGB(255, 255, 255, 255), // Text/icon color on error surfaces
   shadow: Color.fromARGB(0, 0, 0, 0), // Transparent shadow color
   outlineVariant: Color.fromARGB(255, 182, 182, 182), // Color for outlines/borders
-  surface: Color.fromARGB(255, 255, 255, 255), // Background color for surfaces
+  surface: Color.fromARGB(255, 250, 241, 241), // Background color for surfaces
   onSurface: Color.fromARGB(0, 0, 0, 0), // Text/icon color on surfaces (transparent in this case)
 );
 
 /// Dark Color Scheme
 /// Defines a color palette for the dark theme of the app using `ColorScheme`.
 const darkColorScheme = ColorScheme(
-  brightness: Brightness.dark, // Indicates dark mode
-  primary: Color.fromARGB(255, 6, 26, 42), // Main brand color for dark mode
-  onPrimary: Color.fromARGB(255, 255, 255, 255), // Text/icon color on primary surfaces
-  secondary: Color.fromARGB(255, 16, 68, 110), // Secondary brand color
-  onSecondary: Color.fromARGB(255, 255, 255, 255), // Text/icon color on secondary surfaces
+  brightness: Brightness.dark,
+  primary: Color.fromARGB(255, 255, 152, 0),         // Orange primary (buttons, headers)
+  onPrimary: Color.fromARGB(255, 255, 255, 255),            // White text on primary
+  secondary: Color.fromARGB(255, 239, 108, 0),       // Darker orange for accents
+  onSecondary: Color.fromARGB(255, 255, 255, 255),
   error: Color.fromARGB(255, 186, 26, 26), // Color for error messages or elements
-  onError: Color.fromARGB(255, 255, 255, 255), // Text/icon color on error surfaces
-  shadow: Color.fromARGB(0, 0, 0, 0), // Transparent shadow color
-  outlineVariant: Color.fromARGB(255, 182, 182, 182), // Color for outlines/borders
-  surface: Color.fromARGB(255, 255, 255, 255), // Background color for surfaces
-  onSurface: Color.fromARGB(0, 0, 0, 0), // Text/icon color on surfaces (transparent in this case)
+  onError: Colors.black,
+  shadow: Colors.black26,
+  outlineVariant: Color.fromARGB(255, 68, 68, 68), // Border color
+  surface: Color.fromARGB(255, 44, 44, 46),         // Card/surface background (dark blue-gray)
+  onSurface: Colors.white,
 );
+
 
 /// Light Mode Theme
 /// Customizes the Flutter `ThemeData` for light mode.

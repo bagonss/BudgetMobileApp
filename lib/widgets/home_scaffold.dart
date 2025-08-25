@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mobilebuild/theme/theme.dart';
 
 /// A reusable scaffold widget that applies a consistent background image,
 /// app bar styling, and layout to all screens in the app.
-class CustomScaffold extends StatelessWidget {
+class HomeScaffold extends StatelessWidget {
   // A child widget to be rendered within the scaffold
-  const CustomScaffold({super.key, this.child,});
+  const HomeScaffold({super.key, this.child,});
 
   final Widget? child;
 
@@ -15,8 +16,8 @@ class CustomScaffold extends StatelessWidget {
       appBar: AppBar(
         // Sets the icon theme for the app bar (e.g., back button color)
         iconTheme: const IconThemeData(color: Colors.white),
-        // Makes the app bar background transparent
-        backgroundColor: Colors.transparent,
+        backgroundColor: darkColorScheme.primary,
+       
         // Removes the shadow beneath the app bar
         elevation: 0,
       ),

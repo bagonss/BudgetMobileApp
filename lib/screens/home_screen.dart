@@ -1,102 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:mobilebuild/screens/budgetanalytics_screen.dart';
-import 'package:mobilebuild/screens/transactions_screen.dart';
-import 'package:mobilebuild/screens/welcome_screen.dart';
+import 'package:mobilebuild/theme/theme.dart';
+import 'package:mobilebuild/screens/home_body.dart';
+import 'package:mobilebuild/screens/wallet_body.dart';
+import 'package:mobilebuild/screens/budget_body.dart';
+import 'package:mobilebuild/screens/profile_body.dart';
 
-/// Provides quick access to the "Report and Analytics" and "Transaction and Tracking" screens.
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+   final ValueNotifier<ThemeMode> themeModeNotifier;
+  const HomeScreen({super.key, required this.themeModeNotifier});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+   late final List<Widget> _pages;
+
+   @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const HomeBody(),
+      const WalletBody(),
+      const BudgetBody(),
+      ProfileBody(themeModeNotifier: widget.themeModeNotifier),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Use endDrawer to place the drawer on the right side
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            // Padding to move the list items down a bit
-            SizedBox(height: 50), // Adjust this value to move items lower
-            // User Account section
-            ListTile(
-              leading: const Icon(Icons.account_circle),
-              title: const Text('User Account'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            // Settings section
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {
-                
-              },
-            ),
-            // Sign Out section
-            ListTile(
-              leading: const Icon(Icons.exit_to_app),
-              title: const Text('Sign Out'),
-              onTap: () {
-                Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const WelcomeScreen()));
-              },
-            ),
-          ],
-        ),
-      ),
-      // AppBar at the top of the screen
-      appBar: AppBar(
-        title: const Text('Budget App Home'), // Title of the screen
-        backgroundColor: Colors.blueAccent, // Background color of the AppBar
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0), // Padding around the body content
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Centers content vertically
-            children: [
-              // Navigation button to "Report and Analytics" screen
-              _buildNavigationButton(
-                context,
-                'Report and Analytics',
-                BudgetAnalyticsScreen(),
-              ),
-              const SizedBox(height: 20), // Spacing between buttons
-              // Navigation button to "Transaction and Tracking" screen
-              _buildNavigationButton(
-                context,
-                'Transaction and Tracking',
-                const TransactionTrackingScreen(),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+    final colorScheme = lightColorScheme;
 
-  /// Builds a reusable navigation button.
-  Widget _buildNavigationButton(BuildContext context, String label, Widget screen) {
-    return SizedBox(
-      width: double.infinity, // Button spans the full width of the container
-      child: ElevatedButton(
-        onPressed: () {
-          // Navigates to the specified screen when pressed
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => screen),
-          );
+    return Scaffold(
+      backgroundColor: colorScheme.surface,
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: colorScheme.primary,
+        unselectedItemColor: colorScheme.outlineVariant,
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
         },
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 16), // Vertical padding for the button
-        ),
-        child: Text(
-          label, // Button text
-          style: const TextStyle(fontSize: 18), // Font size for the button text
-        ),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.wallet), label: "Wallet"),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: "Budget"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
       ),
+      body: _pages[_selectedIndex],
+      
     );
   }
 }

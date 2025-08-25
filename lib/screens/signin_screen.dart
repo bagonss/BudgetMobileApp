@@ -5,11 +5,12 @@ import 'package:mobilebuild/screens/home_screen.dart';
 import 'package:mobilebuild/widgets/custom_scaffold.dart';
 import 'package:mobilebuild/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../theme/theme.dart';
 
 /// It provides additional features like "Remember Me," "Forgot Password," and social media login options.
 class SigninScreen extends StatefulWidget {
-  const SigninScreen({super.key});
+
+  final ValueNotifier<ThemeMode> themeModeNotifier;
+  const SigninScreen({required this.themeModeNotifier, super.key});
 
   @override
   State<SigninScreen> createState() => _SigninScreenState();
@@ -36,8 +37,10 @@ class _SigninScreenState extends State<SigninScreen> {
       );
       // Navigate to the HomeScreen upon successful login
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      context,
+      MaterialPageRoute
+      (builder: (_) => HomeScreen(themeModeNotifier: widget.themeModeNotifier),
+      ),
       );
     } on FirebaseAuthException catch (e) {
       String message = (e.code == 'user-not-found')
@@ -84,11 +87,11 @@ class _SigninScreenState extends State<SigninScreen> {
                     children: [
                       // Title text
                       Text(
-                        'Welcome Back!',
+                        'Sign In',
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.w900,
-                          color: darkColorScheme.primary,
+                          color: Color.fromARGB(255, 6, 26, 42),
                         ),
                       ),
                       const SizedBox(height: 40),
@@ -179,20 +182,24 @@ class _SigninScreenState extends State<SigninScreen> {
           onChanged: (value) => setState(() {
             rememberPassword = value!;
           }),
-          activeColor: darkColorScheme.primary,
+           activeColor: Color.fromARGB(255, 6, 26, 42),
         ),
         const Text('Remember me', style: TextStyle(color: Colors.black45)),
         const Spacer(),
         GestureDetector(
           onTap: () {
             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ForgotPassword()),
-            );
+  context,
+  MaterialPageRoute(
+    builder: (_) => ForgotPassword(themeModeNotifier: widget.themeModeNotifier),
+  ),
+);
+
           },
           child: Text(
             'Forgot password?',
-            style: TextStyle(fontWeight: FontWeight.bold, color: darkColorScheme.primary),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 6, 26, 42),
+            ),
           ),
         ),
       ],
@@ -236,12 +243,14 @@ class _SigninScreenState extends State<SigninScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SignupScreen()),
+              MaterialPageRoute(builder: (context) => SignupScreen(themeModeNotifier: widget.themeModeNotifier),
+              ),
             );
           },
           child: Text(
             'Sign up',
-            style: TextStyle(fontWeight: FontWeight.bold, color: darkColorScheme.primary),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 6, 26, 42),
+),
           ),
         ),
       ],
