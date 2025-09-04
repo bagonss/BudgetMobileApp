@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home – Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Top Nav -->
   <nav class="site-nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">Tobi Samaye</a>
+    <a class="brand" href="index.html">Home</a>
     <div class="links">
-      <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Résumé</a>
+      <a href="projects.html">Work</a>
       <a href="contact.html">Contact</a>
     </div>
-  </div>
-</nav>
-  <div class="container">
-    <!-- Project Info Section -->
-    <section class="project-info">
-      <h1>Budget Mobile App</h1>
-      <p><strong>Project ID:</strong> SP-26-Clyde-BudgetMobileApp</p>
-      <p><strong>Color:</strong> Pink</p>
-    </section>
+  </nav>
 
-    <!-- Bio Section -->
-    <section class="bio">
-      <h2>About the Developers</h2>
+  <!-- Hero -->
+  <main class="hero">
+    <div class="hero-copy">
+      <h1 class="hero-title">Tobi Samaye</h1>
+      <p class="hero-subtitle">Full-stack Developer</p>
+      <p class="hero-tagline">Engineering elegant, performant, and powerful web applications.</p>
+    </div>
 
-      <div class="bio-container">
-        <img src="images/tobias.png" alt="Tobi Samaye" class="bio-pic">
-        <div>
-          <p><strong>Tobi Samaye</strong></p>
-          <p>Main Programmer / Developer</p>
-        </div>
-      </div>
-`
-    <!-- Quick Links -->
-    <section class="navigation">
-      <a class="btn" href="about.html">Project Details</a>
-      <a class="btn secondary" href="projects.html">See All Projects</a>
-    </section>
-  </div>
+    <a class="cta" href="projects.html" aria-label="See my work">
+      <span class="arrow">→</span>
+    </a>
+  </main>
+
+  <!-- Optional footer (no social links) -->
   <footer class="site-footer">
-  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank">GitHub</a></p>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
+    <p>© <span id="year"></span> Tobi Samaye</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
