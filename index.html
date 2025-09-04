@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home – Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Site Nav (kept your structure) -->
   <nav class="site-nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">Tobi Samaye</a>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Résumé</a>
-      <a href="contact.html">Contact</a>
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Tobi Samaye</a>
+      <div class="links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Résumé</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
+  <!-- Main content kept as your original sections -->
   <div class="container">
-    <!-- Project Info Section -->
+    <!-- Project Info Section (styled as hero copy) -->
     <section class="project-info">
       <h1>Budget Mobile App</h1>
       <p><strong>Project ID:</strong> SP-26-Clyde-BudgetMobileApp</p>
       <p><strong>Color:</strong> Pink</p>
+      <p class="tagline">Engineering elegant, performant, and powerful web applications.</p>
     </section>
 
-    <!-- Bio Section -->
+    <!-- Arrow CTA on the right, like the reference -->
+    <a class="cta" href="projects.html" aria-label="See all projects">
+      <span class="arrow">→</span>
+    </a>
+
+    <!-- Bio Section (same structure, just cleaned) -->
     <section class="bio">
       <h2>About the Developers</h2>
 
       <div class="bio-container">
-        <img src="images/tobias.png" alt="Tobi Samaye" class="bio-pic">
-        <div>
-          <p><strong>Tobi Samaye</strong></p>
-          <p>Main Programmer / Developer</p>
+        <img src="images/tobias.png" alt="Portrait of Tobi Samaye" class="bio-pic">
+        <div class="bio-text">
+          <p class="bio-name"><strong>Tobi Samaye</strong></p>
+          <p class="bio-role">Main Programmer / Developer</p>
         </div>
       </div>
-`
-    <!-- Quick Links -->
+    </section>
+
+    <!-- Quick Links (kept) -->
     <section class="navigation">
       <a class="btn" href="about.html">Project Details</a>
       <a class="btn secondary" href="projects.html">See All Projects</a>
     </section>
   </div>
+
+  <!-- Footer (no social icons) -->
   <footer class="site-footer">
-  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank">GitHub</a></p>
+    <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
 </body>
 </html>
