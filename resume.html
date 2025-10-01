@@ -1,57 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Résumé – Tobi Samaye</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume – Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Site Nav (kept your structure) -->
   <nav class="site-nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">Tobi Samaye</a>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Résumé</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</nav>
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Tobi Samaye</a>
+      <div class="links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>  
+  </nav>
+
   <div class="container">
-    <h1>Résumé</h1>
-    <p>Download a PDF copy or view the highlights below.</p>
+    <h1>Resume</h1>
+    <img src="images/resume_1.png" style="float:none">
+    <p>Download a PDF copy</p>
     <div class="navigation" style="margin-top:10px;">
-      <a class="btn" href="assets/Tobi_Samaye_Resume.pdf" target="_blank">Download PDF</a>
+      <a class="btn" href="assets/images/Oluwatobi Samaye Resume.pdf" target="_blank">Download PDF</a>
     </div>
 
-    <section class="card" style="margin-top:16px;">
-      <h2>Summary</h2>
-      <p>Computer Engineering student focused on embedded systems, mobile apps, and AI-at-the-edge. Experience with Flutter/Dart, Python, Java, Raspberry Pi, and Arduino.</p>
-    </section>
-
-    <section class="card">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Amazon Web Services – SDE Intern (API Gateway)</strong> · Built features and tooling to improve developer experience and reliability.</li>
-        <li><strong>Projects</strong> – FlashBudget (Flutter + Firebase), Talking Box 3000 (Raspberry Pi), DIY Smart GPS Mower, Daily CS Drops (Chrome Ext.).</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Skills</h2>
-      <p><strong>Languages:</strong> Python, Java, C/C++, Dart, JavaScript/TypeScript, SQL</p>
-      <p><strong>Frameworks/Tools:</strong> Flutter, Firebase, React/Next.js, Spring Boot, PostgreSQL, Git</p>
-      <p><strong>Hardware:</strong> Raspberry Pi, Arduino, basic PCB, sensors, Linux</p>
-    </section>
 
     <section class="navigation">
       <a class="btn" href="projects.html">See Projects</a>
     </section>
   </div>
   <footer class="site-footer">
-  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/your-username" target="_blank">GitHub</a></p>
+  <p>© <span id="year"></span> Tobi Samaye · <a href="https://github.com/bagonss/" target="_blank">GitHub</a></p>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
 </body>
