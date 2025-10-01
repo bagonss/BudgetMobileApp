@@ -36,7 +36,7 @@ body{
   z-index:20;
   backdrop-filter: blur(6px);
   background: linear-gradient(180deg, rgba(10,10,10,0.85), rgba(10,10,10,0.35));
-  border-bottom:1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .nav-inner{
   height:72px;
